@@ -1,5 +1,6 @@
 import React from 'react'
 import Sidebar from '../Component/sidebar'
+import HeaderTopBar from '../Component/HeaderTopBar'
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
 
 
@@ -9,10 +10,7 @@ function Home() {
       <div className="flex">
         <Sidebar />
         <div className="p-2 w-8/10">
-            {breadcrumbs.map(({ match, breadcrumb}, index) => (
-                index === 0 ? <span key={match.pathname}> <a href={match.pathname}>Dashboard</a> / </span> :
-                <span key={match.pathname}><a href={match.pathname}>{breadcrumb} / </a></span>
-            ))}
+            <HeaderTopBar/>
         </div>
     </div>
   )

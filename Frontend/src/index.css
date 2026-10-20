@@ -2,7 +2,7 @@
 
 
 *:not(h1, h2, h3, h4, h5, h6) {
-  @apply text-lg;
+  @apply text-base text-white;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -55,4 +55,6 @@ body {
   animation-duration: 5s;
 }
 
-
+.basic-input {
+  @apply autofill:bg-primary outline-1 outline-primary/50 focus:outline-primary rounded-lg p-2 m-2
+}

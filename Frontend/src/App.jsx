@@ -2,8 +2,6 @@ import { useState } from 'react'
 import './App.css'
 import Home from './pages/home'
 import { Routes, Route, Link } from "react-router-dom"
-import Sidebar from './Component/sidebar'
-import useBreadcrumbs from 'use-react-router-breadcrumbs';
 
 
 // function Xyz(){
