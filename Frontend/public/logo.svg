@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Glow Filter -->
+    <filter id="neon-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur1" />
+      <feGaussianBlur stdDeviation="16" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="core-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradients based on your color palette -->
+    <!-- Top / Highlight Edge: g1 -> g2 -->
+    <linearGradient id="grad-highlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BAFFAD" />
+      <stop offset="100%" stop-color="#8FFF7A" />
+    </linearGradient>
+
+    <!-- Primary Front Faces: g3 -> g4 (Heading Neon) -->
+    <linearGradient id="grad-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64FF47" />
+      <stop offset="60%" stop-color="#39FF14" />
+      <stop offset="100%" stop-color="#23E000" />
+    </linearGradient>
+
+    <!-- Inner 3D Chamfer: g5 -> g6 -->
+    <linearGradient id="grad-depth" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#23E000" />
+      <stop offset="100%" stop-color="#1BAD00" />
+    </linearGradient>
+
+    <!-- Underside Shadow Facet: g6 -> g7 -->
+    <linearGradient id="grad-shadow" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1BAD00" />
+      <stop offset="100%" stop-color="#137A00" />
+    </linearGradient>
+
+    <!-- Core Diamond Gradients -->
+    <linearGradient id="grad-core-top" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BAFFAD" />
+      <stop offset="100%" stop-color="#39FF14" />
+    </linearGradient>
+    <linearGradient id="grad-core-bottom" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#23E000" />
+      <stop offset="100%" stop-color="#137A00" />
+    </linearGradient>
+
+    <!-- Single Interlocking 3D Arm Template -->
+    <g id="nexus-arm">
+      <!-- Underside / Depth shadow -->
+      <path d="M 256,76 L 366,138 L 336,155 L 256,108 Z" fill="url(#grad-shadow)" />
+
+      <!-- Top lit beveled rail -->
+      <path d="M 256,56 L 386,130 L 366,138 L 256,76 Z" fill="url(#grad-highlight)" />
+
+      <!-- Main vertical/isometric front face -->
+      <path d="M 386,130 L 386,176 L 336,204 L 336,155 L 366,138 Z" fill="url(#grad-primary)" />
+
+      <!-- Inward folding connector block -->
+      <path d="M 336,155 L 336,204 L 286,176 L 286,126 Z" fill="url(#grad-depth)" />
+
+      <!-- Inner accent edge with neon glow -->
+      <path d="M 286,176 L 256,193 L 256,172 L 286,154 Z" fill="url(#grad-primary)" />
+
+      <!-- Crisp neon accent trace -->
+      <path d="M 256,56 L 386,130 L 386,176" stroke="#39FF14" stroke-width="2" stroke-linecap="round" opacity="0.9" filter="url(#neon-glow)" />
+    </g>
+  </defs>
+
+  <!-- Ambient Decentralized Network Constellation (Background Accents) -->
+  <g opacity="0.45" stroke="#39FF14" stroke-width="1.5">
+    <!-- Orbital Nodes & Hex Ring -->
+    <circle cx="256" cy="36" r="4" fill="#BAFFAD" />
+    <circle cx="447" cy="146" r="4" fill="#8FFF7A" />
+    <circle cx="447" cy="366" r="4" fill="#39FF14" />
+    <circle cx="256" cy="476" r="4" fill="#23E000" />
+    <circle cx="65" cy="366" r="4" fill="#1BAD00" />
+    <circle cx="65" cy="146" r="4" fill="#64FF47" />
+
+    <!-- Network connection tethers (dashed lines) -->
+    <line x1="256" y1="36" x2="447" y2="146" stroke-dasharray="6 8" />
+    <line x1="447" y1="146" x2="447" y2="366" stroke-dasharray="6 8" />
+    <line x1="447" y1="366" x2="256" y2="476" stroke-dasharray="6 8" />
+    <line x1="256" y1="476" x2="65" y2="366" stroke-dasharray="6 8" />
+    <line x1="65" y1="366" x2="65" y2="146" stroke-dasharray="6 8" />
+    <line x1="65" y1="146" x2="256" y2="36" stroke-dasharray="6 8" />
+  </g>
+
+  <!-- Main Interlocking 3D Hex-Trident (Rotational Symmetry: 0°, 120°, 240°) -->
+  <g>
+    <!-- Arm 1 (Top / North) -->
+    <use href="#nexus-arm" />
+
+    <!-- Arm 2 (Bottom Right / South-East) -->
+    <use href="#nexus-arm" transform="rotate(120 256 256)" />
+
+    <!-- Arm 3 (Bottom Left / South-West) -->
+    <use href="#nexus-arm" transform="rotate(240 256 256)" />
+  </g>
+
+  <!-- Central Suspended Cryptographic Polyhedron / Quantum Core -->
+  <g filter="url(#core-glow)">
+    <!-- Core Top-Left Facet -->
+    <polygon points="256,218 256,256 223,237" fill="url(#grad-core-top)" opacity="0.95" />
+    
+    <!-- Core Top-Right Facet -->
+    <polygon points="256,218 289,237 256,256" fill="#BAFFAD" opacity="0.85" />
+    
+    <!-- Core Bottom-Right Facet -->
+    <polygon points="256,256 289,237 289,275 256,294" fill="url(#grad-primary)" />
+    
+    <!-- Core Bottom-Left Facet -->
+    <polygon points="256,256 223,237 223,275 256,294" fill="url(#grad-core-bottom)" />
+
+    <!-- Core Center Seam & Radiant Vertex Points -->
+    <circle cx="256" cy="256" r="3.5" fill="#FFFFFF" />
+    <circle cx="256" cy="218" r="2.5" fill="#BAFFAD" />
+    <circle cx="289" cy="237" r="2.5" fill="#8FFF7A" />
+    <circle cx="289" cy="275" r="2.5" fill="#39FF14" />
+    <circle cx="256" cy="294" r="2.5" fill="#23E000" />
+    <circle cx="223" cy="275" r="2.5" fill="#1BAD00" />
+    <circle cx="223" cy="237" r="2.5" fill="#64FF47" />
+  </g>
+</svg>
