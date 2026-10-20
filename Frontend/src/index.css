@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+#root{
+  height: 100vh;
+}
 
 *:not(h1, h2, h3, h4, h5, h6) {
   @apply text-base text-white;
@@ -57,4 +60,8 @@ body {
 
 .basic-input {
   @apply autofill:bg-primary outline-1 outline-primary/50 focus:outline-primary rounded-lg p-2 m-2
+}
+
+.overview{
+  @apply box-border m-4 p-4 rounded-xl shadow-md border-1 border-primary/30
 }

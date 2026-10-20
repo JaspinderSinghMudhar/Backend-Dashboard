@@ -1,22 +1,40 @@
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
 import { useState } from 'react'
 
+
 function HeaderTopBar() {
     const breadcrumbs = useBreadcrumbs();
     const [form_value, setFormValue] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // Send search value to backend
+        try {
+            await fetch('http://localhost:3000/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query: form_value })
+            });
+            console.log('Search sent:', form_value);
+        } catch (error) {
+            console.error('Search failed:', error);
+        }
+    };
+
     return (
         <>
             <div className="top-bar flex items-center justify-between gap-2 p-2">
-                {breadcrumbs.map(({ match, breadcrumb }, index) => (
-                    index === 0 ? <span key={match.pathname}> <a href={match.pathname}>Dashboard</a> / </span> :
-                        <span key={match.pathname}><a href={match.pathname}>{breadcrumb} / </a></span>
-                ))}
-                <form action="http://localhost:3000/" className="search" onSubmit={(e) => {
-                    console.log(form_value);
-                    e.preventDefault();
-                }}>
+                <div className="breadcrumbs">
+                    {breadcrumbs.map(({ match, breadcrumb }, index) => (
+                        index === 0 ? <span key={match.pathname}> <a href={match.pathname}>Dashboard</a> / </span> :
+                            <span key={match.pathname}><a href={match.pathname}>{breadcrumb} / </a></span>
+                    ))}
+                </div>
+                <form className="search" onSubmit={handleSubmit}>
                     <input value={form_value} onChange={(e) => setFormValue(e.target.value)}
-                     type="text" placeholder="Search..." className="basic-input" />
+                        type="text" placeholder="Search..." className="basic-input" />
                 </form>
             </div>
 
