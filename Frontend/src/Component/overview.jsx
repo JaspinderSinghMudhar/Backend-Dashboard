@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Overview(props) {
     return (
-        <div className="overview bg-primary/10">
+        <div className="overview">
             {props.thumbnail &&
                 <img src={props.thumbnail} alt={props.Name} className='w-100 p-4 bg-white rounded-xl rounded-br-none rounded-bl-none border-b-1 border-primary' />
             }

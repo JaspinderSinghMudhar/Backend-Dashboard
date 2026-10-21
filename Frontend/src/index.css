@@ -59,11 +59,12 @@ body {
 }
 
 .basic-input {
-  @apply autofill:bg-primary outline-1 outline-primary/50 focus:outline-primary rounded-lg p-2 m-2
+  @apply autofill:bg-primary outline-1 outline-primary/50 focus:outline-primary rounded-lg p-2 m-2 bg-green-950 w-[100%]
 }
 
 .overview{
-  @apply box-border m-2 rounded-xl shadow-md border-1 border-primary/30
+  @apply box-border m-2 rounded-xl shadow-md border-1 border-primary/30 bg-black
+  /* bg-primary/10 */
 }
 
 .nav-menu-link{

@@ -33,7 +33,7 @@ function HeaderTopBar() {
                             <span key={match.pathname}><Link to={match.pathname}>{breadcrumb} / </Link></span>
                     ))}
                 </div>
-                <form className="search" onSubmit={handleSubmit}>
+                <form className="search w-[25%] pr-4" onSubmit={handleSubmit}>
                     <input value={form_value} onChange={(e) => setFormValue(e.target.value)}
                         type="text" placeholder="Search..." className="basic-input" />
                 </form>
