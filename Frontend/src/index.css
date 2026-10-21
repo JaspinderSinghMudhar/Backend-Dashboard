@@ -63,5 +63,17 @@ body {
 }
 
 .overview{
-  @apply box-border m-4 p-4 rounded-xl shadow-md border-1 border-primary/30
+  @apply box-border m-2 rounded-xl shadow-md border-1 border-primary/30
+}
+
+.nav-menu-link{
+  @apply flex items-center justify-start gap-2 p-2 hover:bg-primary/20;
+}
+
+.discount{
+  @apply bg-primary text-[10px]! rounded-xl text-black! m-1 p-1 font-bold
+}
+
+.button{
+  @apply rounded-4xl py-2 px-8 mt-5 bg-primary hover:bg-primary/80
 }
