@@ -32,10 +32,6 @@ app.get('/api/product', async (req, res) => {
     res.json(data);
 })
 
-// app.get({slug}, (req, res) => {
-//     res.send('response from backend api')
-// })
-
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)
 })

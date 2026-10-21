@@ -13,15 +13,15 @@ function Products() {
             });
     }, []);
     return (
-        <>
+        <div className='Content-box'>
             <h4 className='p-4'>Products</h4>
-            <div className="overview-boxes grid grid-cols-4">
+            <div className="overview-boxes grid grid-cols-4 px-4">
                 {items.map((e) => {
                     return <Overview key={e.id}
-                     Name={e.title} Number={e.price} thumbnail={e.thumbnail} discount={e.discountPercentage} slug={e.slug} />
+                     Name={e.title} Number={e.price} thumbnail={e.thumbnail} discount={e.discountPercentage} id={e.id} />
                 })}
             </div>
-        </>
+        </div>
     )
 }
 

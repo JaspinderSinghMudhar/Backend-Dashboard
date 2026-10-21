@@ -13,7 +13,7 @@ function Overview(props) {
                 <span className='text-xs! text-gray-400! mb-2'>Last 30 days</span>
                 <br />
                 <div className='mt-4 mb-2'>
-                <Link to={props.slug} className='button'>View</Link>
+                <Link to={'/products/'+props.id} className='button'>View</Link>
                 </div>
             </div>
 

@@ -1,5 +1,6 @@
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 
 function HeaderTopBar() {
@@ -25,11 +26,11 @@ function HeaderTopBar() {
 
     return (
         <>
-            <div className="top-bar flex items-center justify-between gap-2 p-2">
+            <div className="top-bar flex items-center justify-between gap-2 p-4">
                 <div className="breadcrumbs">
                     {breadcrumbs.map(({ match, breadcrumb }, index) => (
-                        index === 0 ? <span key={match.pathname}> <a href={match.pathname}>Dashboard</a> / </span> :
-                            <span key={match.pathname}><a href={match.pathname}>{breadcrumb} / </a></span>
+                        index === 0 ? <span key={match.pathname}> <Link to={"/"+match.pathname}>Dashboard</Link> / </span> :
+                            <span key={match.pathname}><Link to={match.pathname}>{breadcrumb} / </Link></span>
                     ))}
                 </div>
                 <form className="search" onSubmit={handleSubmit}>

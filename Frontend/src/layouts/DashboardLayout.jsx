@@ -1,17 +1,13 @@
 
-import React from 'react'
 import Sidebar from '../Component/sidebar'
 import HeaderTopBar from '../Component/HeaderTopBar'
 import { Outlet } from 'react-router-dom'
-import useBreadcrumbs from 'use-react-router-breadcrumbs';
-
 
 function DashboardLayout() {
-    const breadcrumbs = useBreadcrumbs();
   return (
-      <div className="flex h-[100vh]">
+      <div className="flex h-[100vh] scrollbar-none">
         <Sidebar />
-        <div className="p-2 w-8/10">
+        <div className="w-8/10 scrollbar-thin overflow-auto">
             <HeaderTopBar/>
             <Outlet />
         </div>

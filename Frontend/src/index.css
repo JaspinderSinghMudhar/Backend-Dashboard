@@ -67,7 +67,7 @@ body {
 }
 
 .nav-menu-link{
-  @apply flex items-center justify-start gap-2 p-2 hover:bg-primary/20;
+  @apply flex items-center justify-start gap-2 p-2 border-b border-primary/30 hover:bg-primary/20;
 }
 
 .discount{
@@ -76,4 +76,8 @@ body {
 
 .button{
   @apply rounded-4xl py-2 px-8 mt-5 bg-primary hover:bg-primary/80
+}
+
+.Content-box{
+  @apply bg-green-950
 }

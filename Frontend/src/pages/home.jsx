@@ -36,14 +36,14 @@ function Home() {
         }
     ]
     return (
-        <>
+        <div className='Content-box'>
             <h4 className='p-4'>Overview</h4>
-            <div className="overview-boxes grid grid-cols-4">
+            <div className="overview-boxes grid grid-cols-4  px-4">
                 {items.map((e) => {
                     return <Overview key={e.id} Name={e.title} Number={e.price} img={e.thumbnail} />
                 })}
             </div>
-        </>
+        </div>
     )
 }
 
