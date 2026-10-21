@@ -18,7 +18,7 @@ function Products() {
             <div className="overview-boxes grid grid-cols-4 px-4">
                 {items.map((e) => {
                     return <Overview key={e.id}
-                     Name={e.title} Number={e.price} thumbnail={e.thumbnail} discount={e.discountPercentage} id={e.id} />
+                     Name={e.title} Number={"$" + e.price} thumbnail={e.thumbnail} discount={e.discountPercentage} id={e.id} day_30={false}/>
                 })}
             </div>
         </div>

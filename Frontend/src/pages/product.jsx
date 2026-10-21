@@ -14,7 +14,7 @@ function Product() {
     }, [id])
     
     return (
-        <div>
+        <div className="">
             <h1 className='text-5xl mt-7'>{data.title}</h1>
         </div>
     )
